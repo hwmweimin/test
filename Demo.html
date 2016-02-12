@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+
+    <script type="text/javascript">
+		var hiddenProperty = 'hidden' in document ? 'hidden' : 
+		    'webkitHidden' in document ? 'webkitHidden' : 
+		    'mozHidden' in document ? 'mozHidden' : 
+		    null;
+
+		var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+		var onVisibilityChange = function(){
+		    if (!document[hiddenProperty]) {
+		    	// $(document).attr('title', 'test');
+		    	document.title = 'test';
+		    }else{
+		        // $(document).attr('title', '小婊砸还不回来！');
+		        document.title = '小婊砸还不回来！';
+		    }
+		}
+
+		document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
